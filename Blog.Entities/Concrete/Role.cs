@@ -11,6 +11,6 @@ namespace Blog.Entities.Concrete
     {
         public string Name { get; set; }
         public string Description { get; set; }
-        public ICollection<User> User { get; set; }
+        public ICollection<User> Users { get; set; }
     }
 }
