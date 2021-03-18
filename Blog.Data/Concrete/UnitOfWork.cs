@@ -32,9 +32,6 @@ namespace Blog.Data.Concrete
             return await _context.SaveChangesAsync();
         }
 
-        public async ValueTask DisposeAsync()
-        {
-            await _context.DisposeAsync();
-        }
+        
     }
 }
