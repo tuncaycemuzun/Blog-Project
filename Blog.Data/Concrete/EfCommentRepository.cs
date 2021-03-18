@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using Blog.Data.Abstract;
@@ -11,11 +10,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Blog.Data.Concrete
 {
-    public class ArticleRepository : EfEntityRepositoryBase<Article>,IArticleRepository
+    public class EfCommentRepository : EfEntityRepositoryBase<Comment>, ICommentRepository
     {
-        public ArticleRepository(DbContext context) : base(context)
+        public EfCommentRepository(DbContext context) : base(context)
         {
-
         }
     }
 }

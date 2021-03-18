@@ -10,9 +10,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Blog.Data.Concrete
 {
-    public class UserRepository : EfEntityRepositoryBase<User>, IUserRepository
+    public class EfUserRepository : EfEntityRepositoryBase<User>, IUserRepository
     {
-        public UserRepository(DbContext context) : base(context)
+        public EfUserRepository(DbContext context) : base(context)
         {
         }
     }
