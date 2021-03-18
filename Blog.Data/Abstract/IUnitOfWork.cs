@@ -12,7 +12,7 @@ namespace Blog.Data.Abstract
         ICategoryRepository Categories { get; }
         ICommentRepository Comments { get; }
         IRoleRepository Roles { get; }
-        IUserRepository Users { get; } // _unitOfWork.Categories.AddAsync();
+        IUserRepository Users { get; } // _unitOfWork.Users.AddAsync();
         Task<int> SaveAsync();
     }
 }
