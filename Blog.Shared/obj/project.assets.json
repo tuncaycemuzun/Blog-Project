@@ -15,11 +15,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Tuncay\\source\\repos\\BlogProject\\Blog.Shared\\Blog.Shared.csproj",
+      "projectUniqueName": "B:\\Dosyalar\\Projeler\\Calismalarim\\Asp.Net Core\\BlogProject\\Blog-Project\\Blog.Shared\\Blog.Shared.csproj",
       "projectName": "Blog.Shared",
-      "projectPath": "C:\\Users\\Tuncay\\source\\repos\\BlogProject\\Blog.Shared\\Blog.Shared.csproj",
+      "projectPath": "B:\\Dosyalar\\Projeler\\Calismalarim\\Asp.Net Core\\BlogProject\\Blog-Project\\Blog.Shared\\Blog.Shared.csproj",
       "packagesPath": "C:\\Users\\Tuncay\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Tuncay\\source\\repos\\BlogProject\\Blog.Shared\\obj\\",
+      "outputPath": "B:\\Dosyalar\\Projeler\\Calismalarim\\Asp.Net Core\\BlogProject\\Blog-Project\\Blog.Shared\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",

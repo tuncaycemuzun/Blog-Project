@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Tuncay\\source\\repos\\BlogProject\\Blog.Data\\Blog.Data.csproj": {}
+    "B:\\Dosyalar\\Projeler\\Calismalarim\\Asp.Net Core\\BlogProject\\Blog-Project\\Blog.Data\\Blog.Data.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Tuncay\\source\\repos\\BlogProject\\Blog.Data\\Blog.Data.csproj": {
+    "B:\\Dosyalar\\Projeler\\Calismalarim\\Asp.Net Core\\BlogProject\\Blog-Project\\Blog.Data\\Blog.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Tuncay\\source\\repos\\BlogProject\\Blog.Data\\Blog.Data.csproj",
+        "projectUniqueName": "B:\\Dosyalar\\Projeler\\Calismalarim\\Asp.Net Core\\BlogProject\\Blog-Project\\Blog.Data\\Blog.Data.csproj",
         "projectName": "Blog.Data",
-        "projectPath": "C:\\Users\\Tuncay\\source\\repos\\BlogProject\\Blog.Data\\Blog.Data.csproj",
+        "projectPath": "B:\\Dosyalar\\Projeler\\Calismalarim\\Asp.Net Core\\BlogProject\\Blog-Project\\Blog.Data\\Blog.Data.csproj",
         "packagesPath": "C:\\Users\\Tuncay\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Tuncay\\source\\repos\\BlogProject\\Blog.Data\\obj\\",
+        "outputPath": "B:\\Dosyalar\\Projeler\\Calismalarim\\Asp.Net Core\\BlogProject\\Blog-Project\\Blog.Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",

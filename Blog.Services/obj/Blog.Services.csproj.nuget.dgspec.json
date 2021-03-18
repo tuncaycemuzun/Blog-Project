@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Tuncay\\source\\repos\\BlogProject\\Blog.Services\\Blog.Services.csproj": {}
+    "B:\\Dosyalar\\Projeler\\Calismalarim\\Asp.Net Core\\BlogProject\\Blog-Project\\Blog.Services\\Blog.Services.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Tuncay\\source\\repos\\BlogProject\\Blog.Services\\Blog.Services.csproj": {
+    "B:\\Dosyalar\\Projeler\\Calismalarim\\Asp.Net Core\\BlogProject\\Blog-Project\\Blog.Services\\Blog.Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Tuncay\\source\\repos\\BlogProject\\Blog.Services\\Blog.Services.csproj",
+        "projectUniqueName": "B:\\Dosyalar\\Projeler\\Calismalarim\\Asp.Net Core\\BlogProject\\Blog-Project\\Blog.Services\\Blog.Services.csproj",
         "projectName": "Blog.Services",
-        "projectPath": "C:\\Users\\Tuncay\\source\\repos\\BlogProject\\Blog.Services\\Blog.Services.csproj",
+        "projectPath": "B:\\Dosyalar\\Projeler\\Calismalarim\\Asp.Net Core\\BlogProject\\Blog-Project\\Blog.Services\\Blog.Services.csproj",
         "packagesPath": "C:\\Users\\Tuncay\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Tuncay\\source\\repos\\BlogProject\\Blog.Services\\obj\\",
+        "outputPath": "B:\\Dosyalar\\Projeler\\Calismalarim\\Asp.Net Core\\BlogProject\\Blog-Project\\Blog.Services\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
