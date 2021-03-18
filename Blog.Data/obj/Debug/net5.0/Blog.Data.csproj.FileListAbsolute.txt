@@ -1,0 +1,6 @@
+B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.Data\bin\Debug\net5.0\Blog.Entities.dll
+B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.Data\bin\Debug\net5.0\Blog.Shared.dll
+B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.Data\obj\Debug\net5.0\Blog.Data.csprojAssemblyReference.cache
+B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.Data\obj\Debug\net5.0\Blog.Data.GeneratedMSBuildEditorConfig.editorconfig
+B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.Data\obj\Debug\net5.0\Blog.Data.AssemblyInfoInputs.cache
+B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.Data\obj\Debug\net5.0\Blog.Data.AssemblyInfo.cs
