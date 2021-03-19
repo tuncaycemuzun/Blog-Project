@@ -1,4 +1,5 @@
-﻿@using Blog.Shared.Utilities.Results.ComplexTypes
+﻿@using System.Data
+@using Blog.Shared.Utilities.Results.ComplexTypes
 @model Blog.Entities.Dtos.CategoryListDto
 @{
     Layout = "_Layout";
@@ -67,11 +68,17 @@
 
 
 @if (Model.ResultStatus == ResultStatus.Error)
-{
-    <div class="alert alert-danger">
-        @Model.Message <br/>
-        Dashboard sayfasına geri dönmek için lütfen <a class="alert-link" asp-area="Admin" asp-controller="Home" asp-action="Index">tıklayın</a>
+{   
+    <div class="row">
+        <a class="btn btn-success">Ekle</a>
     </div>
+    <div class="row">
+        <div class="alert alert-danger">
+            @Model.Message <br/>
+            Dashboard sayfasına geri dönmek için lütfen <a class="alert-link" asp-area="Admin" asp-controller="Home" asp-action="Index">tıklayın</a>
+        </div>
+    </div>
+    
 }
 
 
