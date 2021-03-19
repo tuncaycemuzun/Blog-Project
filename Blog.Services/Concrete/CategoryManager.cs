@@ -90,7 +90,8 @@ namespace Blog.Services.Concrete
             var category = _mapper.Map<Category>(categoryAddDto);
             category.CreatedByName = createdByName;
             category.ModifiedByName = createdByName;
-            await _unitOfWork.Categories.AddAsync(category).ContinueWith(t => _unitOfWork.SaveAsync());
+            await _unitOfWork.Categories.AddAsync(category);
+            await _unitOfWork.SaveAsync();
             //await _unitOfWork.SaveAsync();
             return new Result(ResultStatus.Success, $"{categoryAddDto.Name} adlı kategori başarıyla eklenmiştir");
         }
@@ -99,7 +100,8 @@ namespace Blog.Services.Concrete
         {
             var category = _mapper.Map<Category>(categoryUpdateDto);
             category.ModifiedByName = modifiedByName;
-            await _unitOfWork.Categories.UpdateAsync(category).ContinueWith(t => _unitOfWork.SaveAsync());
+            await _unitOfWork.Categories.UpdateAsync(category);
+            await _unitOfWork.SaveAsync();
             return new Result(ResultStatus.Success, $"{categoryUpdateDto.Name} adlı kategori başarıyla güncellenmiştir.");
         }
 
@@ -111,7 +113,8 @@ namespace Blog.Services.Concrete
                 categori.IsDeleted = false;
                 categori.ModifiedByName = modifiedByName;
                 categori.ModifiedDate=DateTime.Now;
-                await _unitOfWork.Categories.UpdateAsync(categori).ContinueWith(t => _unitOfWork.SaveAsync());
+                await _unitOfWork.Categories.UpdateAsync(categori);
+                await _unitOfWork.SaveAsync();
                 return new Result(ResultStatus.Success, $"{categori.Name} adlı kategori başarıyla silinmiştir.");
             }
             return new Result(ResultStatus.Error, "Böyle bir kategori bulunamadı");
@@ -123,7 +126,8 @@ namespace Blog.Services.Concrete
             if (categori != null)
             {
                 categori.IsDeleted = false;
-                await _unitOfWork.Categories.DeleteAsync(categori).ContinueWith(t=>_unitOfWork.SaveAsync());
+                await _unitOfWork.Categories.DeleteAsync(categori);
+                await _unitOfWork.SaveAsync();
                 return new Result(ResultStatus.Success, $"{categori.Name} adlı kategori başarıyla veri tabanından silinmiştir.");
             }
             return new Result(ResultStatus.Error, "Böyle bir kategori bulunamadı");
