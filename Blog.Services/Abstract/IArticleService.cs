@@ -11,7 +11,7 @@ namespace Blog.Services.Abstract
 {
     public interface IArticleService
     {
-        Task<IDataResult<ArticleDto>> Get(int categoryId);
+        Task<IDataResult<ArticleDto>> Get(int articleId);
         Task<IDataResult<ArticleListDto>> GetAll();
         Task<IDataResult<ArticleListDto>> GetAllByNonDeleted();
         Task<IDataResult<ArticleListDto>> GetAllByNonDeletedAndActive();
