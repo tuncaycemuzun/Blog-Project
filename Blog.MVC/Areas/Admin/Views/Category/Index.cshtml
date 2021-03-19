@@ -6,10 +6,10 @@
 }
 @if (Model.ResultStatus == ResultStatus.Success)
 {
-    <div class="card mb-4">
+    <div class="card mb-4 mt-2">
         <div class="card-header">
             <i class="fas fa-table mr-1"></i>
-            DataTable Example
+            Kategori Listesi
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -56,8 +56,6 @@
                             <td>@category.CreatedByName</td>
                             <td>@category.ModifiedDate.ToShortDateString()</td>
                             <td>@category.ModifiedByName</td>
-
-
                         </tr>
                         }
                     </tbody>
@@ -70,7 +68,17 @@
 {
     <script>
         $(document).ready(function() {
-            $('#categoriesTable').DataTable();
+            $('#categoriesTable').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    {
+                        text: 'My Button',
+                        action: function(e, dt, node, config) {
+                            alert('Button activated');
+                        }
+                    }
+                ]
+            });
         });
     </script>
 }
