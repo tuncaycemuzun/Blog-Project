@@ -69,19 +69,49 @@ namespace Blog.Services.Concrete
             return new Result(ResultStatus.Success, $"{categoryAddDto.Name} adlı kategori başarıyla eklenmiştir");
         }
 
-        public Task<IResult> Update(CategoryUpdateDto categoryUpdateDto, string modifiedByName)
+        public async Task<IResult> Update(CategoryUpdateDto categoryUpdateDto, string modifiedByName)
         {
-            throw new NotImplementedException();
+            var categori = await _unitOfWork.Categories.GetAsync(c => c.Id == categoryUpdateDto.Id);
+            if (categori != null)
+            {
+                categori.Name = categoryUpdateDto.Name;
+                categori.Description = categoryUpdateDto.Description;
+                categori.Note = categoryUpdateDto.Note;
+                categori.IsActive = categoryUpdateDto.IsActive;
+                categori.IsDeleted = categoryUpdateDto.IsDeleted;
+                categori.ModifiedByName = modifiedByName;
+                categori.ModifiedDate=DateTime.Now;
+                await _unitOfWork.Categories.UpdateAsync(categori).ContinueWith(t => _unitOfWork.SaveAsync());
+                return new Result(ResultStatus.Success, $"{categoryUpdateDto.Name} adlı kategori başarıyla güncellenmiştir.");
+            }
+
+            return new Result(ResultStatus.Error, "Böyle bir kategori bulunamadı");
         }
 
-        public Task<IResult> Delete(int categoryId)
+        public async Task<IResult> Delete(int categoryId,string modifiedByName)
         {
-            throw new NotImplementedException();
+            var categori = await _unitOfWork.Categories.GetAsync(c => c.Id == categoryId);
+            if (categori != null)
+            {
+                categori.IsDeleted = false;
+                categori.ModifiedByName = modifiedByName;
+                categori.ModifiedDate=DateTime.Now;
+                await _unitOfWork.Categories.UpdateAsync(categori).ContinueWith(t => _unitOfWork.SaveAsync());
+                return new Result(ResultStatus.Success, $"{categori.Name} adlı kategori başarıyla silinmiştir.");
+            }
+            return new Result(ResultStatus.Error, "Böyle bir kategori bulunamadı");
         }
 
-        public Task<IResult> HardDelete(int categoryId)
+        public async Task<IResult> HardDelete(int categoryId)
         {
-            throw new NotImplementedException();
+            var categori = await _unitOfWork.Categories.GetAsync(c => c.Id == categoryId);
+            if (categori != null)
+            {
+                categori.IsDeleted = false;
+                await _unitOfWork.Categories.DeleteAsync(categori).ContinueWith(t=>_unitOfWork.SaveAsync());
+                return new Result(ResultStatus.Success, $"{categori.Name} adlı kategori başarıyla veri tabanından silinmiştir.");
+            }
+            return new Result(ResultStatus.Error, "Böyle bir kategori bulunamadı");
         }
     }
 }
