@@ -57,6 +57,9 @@ namespace Blog.Entities.Dtos
         [Required(ErrorMessage = "{0} alanı boş geçilmemelidir.")]
         public int CategoryId { get; set; }
         public Category Category { get; set; }
-        
+
+        [DisplayName("Aktif Mi?")]
+        [Required(ErrorMessage = "{0} alanı boş geçilmemelidir.")]
+        public bool IsActive { get; set; }
     }
 }
