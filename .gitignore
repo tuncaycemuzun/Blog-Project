@@ -1,3 +1,12 @@
 
 .vs
-
+Blog.Data/bin
+Blog.Data/obj
+Blog.Entities/bin
+Blog.Entities/obj
+Blog.MVC/bin
+Blog.MVC/obj
+Blog.Services/bin
+Blog.Services/obj
+Blog.Shared/bin
+Blog.Shared/obj
