@@ -20,11 +20,7 @@ namespace Blog.MVC.Areas.Admin.Controllers
         public async Task<IActionResult> Index()
         {
             var result = await _categoryService.GetAll();
-            if (result.ResultStatus == ResultStatus.Success)
-            {
-                return View(result.Data);
-            }
-            return View();
+            return View(result.Data);
         }
     }
 }
