@@ -10,3 +10,10 @@ B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.Ser
 B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.Services\obj\Debug\net5.0\Blog.Services.dll
 B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.Services\obj\Debug\net5.0\ref\Blog.Services.dll
 B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.Services\obj\Debug\net5.0\Blog.Services.pdb
+B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.Services\bin\Debug\net5.0\Blog.Data.dll
+B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.Services\bin\Debug\net5.0\Blog.Entities.dll
+B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.Services\bin\Debug\net5.0\Blog.Shared.dll
+B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.Services\bin\Debug\net5.0\Blog.Data.pdb
+B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.Services\bin\Debug\net5.0\Blog.Entities.pdb
+B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.Services\bin\Debug\net5.0\Blog.Shared.pdb
+B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.Services\obj\Debug\net5.0\Blog.Services.csproj.CopyComplete
