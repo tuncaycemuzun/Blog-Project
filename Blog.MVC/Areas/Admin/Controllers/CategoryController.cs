@@ -22,5 +22,10 @@ namespace Blog.MVC.Areas.Admin.Controllers
             var result = await _categoryService.GetAll();
             return View(result.Data);
         }
+        [Area("Admin")]
+        public IActionResult Add()
+        {
+            return PartialView("_CategoryAddPartial");
+        }
     }
 }
