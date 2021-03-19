@@ -32,5 +32,10 @@ namespace Blog.Entities.Dtos
         [DisplayName("Aktif Mi?")]
         [Required(ErrorMessage = "{0} Boş geçilmemelidir")]
         public bool IsActive { get; set; }
+
+
+        [DisplayName("Silindi Mi?")]
+        [Required(ErrorMessage = "{0} Boş geçilmemelidir")]
+        public bool IsDeleted { get; set; }
     }
 }
