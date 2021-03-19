@@ -4,3 +4,17 @@ B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.Dat
 B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.Data\obj\Debug\net5.0\Blog.Data.GeneratedMSBuildEditorConfig.editorconfig
 B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.Data\obj\Debug\net5.0\Blog.Data.AssemblyInfoInputs.cache
 B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.Data\obj\Debug\net5.0\Blog.Data.AssemblyInfo.cs
+B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.Data\bin\Debug\net5.0\Blog.Data.deps.json
+B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.Data\bin\Debug\net5.0\Blog.Data.runtimeconfig.json
+B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.Data\bin\Debug\net5.0\Blog.Data.runtimeconfig.dev.json
+B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.Data\bin\Debug\net5.0\Blog.Data.dll
+B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.Data\bin\Debug\net5.0\ref\Blog.Data.dll
+B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.Data\bin\Debug\net5.0\Blog.Data.pdb
+B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.Data\bin\Debug\net5.0\Blog.Entities.pdb
+B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.Data\bin\Debug\net5.0\Blog.Shared.pdb
+B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.Data\obj\Debug\net5.0\Blog.Data.csproj.CoreCompileInputs.cache
+B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.Data\obj\Debug\net5.0\Blog.Data.csproj.CopyComplete
+B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.Data\obj\Debug\net5.0\Blog.Data.dll
+B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.Data\obj\Debug\net5.0\ref\Blog.Data.dll
+B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.Data\obj\Debug\net5.0\Blog.Data.pdb
+B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.Data\obj\Debug\net5.0\Blog.Data.genruntimeconfig.cache

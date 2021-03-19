@@ -1,0 +1,15 @@
+B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.Entities\bin\Debug\net5.0\Blog.Entities.deps.json
+B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.Entities\bin\Debug\net5.0\Blog.Entities.dll
+B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.Entities\bin\Debug\net5.0\ref\Blog.Entities.dll
+B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.Entities\bin\Debug\net5.0\Blog.Entities.pdb
+B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.Entities\bin\Debug\net5.0\Blog.Shared.dll
+B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.Entities\bin\Debug\net5.0\Blog.Shared.pdb
+B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.Entities\obj\Debug\net5.0\Blog.Entities.csprojAssemblyReference.cache
+B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.Entities\obj\Debug\net5.0\Blog.Entities.GeneratedMSBuildEditorConfig.editorconfig
+B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.Entities\obj\Debug\net5.0\Blog.Entities.AssemblyInfoInputs.cache
+B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.Entities\obj\Debug\net5.0\Blog.Entities.AssemblyInfo.cs
+B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.Entities\obj\Debug\net5.0\Blog.Entities.csproj.CoreCompileInputs.cache
+B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.Entities\obj\Debug\net5.0\Blog.Entities.csproj.CopyComplete
+B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.Entities\obj\Debug\net5.0\Blog.Entities.dll
+B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.Entities\obj\Debug\net5.0\ref\Blog.Entities.dll
+B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.Entities\obj\Debug\net5.0\Blog.Entities.pdb
