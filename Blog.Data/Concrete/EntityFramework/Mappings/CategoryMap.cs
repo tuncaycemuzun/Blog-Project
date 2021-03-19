@@ -28,6 +28,47 @@ namespace Blog.Data.Concrete.EntityFramework.Mappings
             builder.Property(c => c.IsDeleted).IsRequired(true);
             builder.Property(c => c.Note).HasMaxLength(500);
             builder.ToTable("Categories");
+
+            builder.HasData(
+            new Category
+            {
+                Id=1,
+                Name="C#",
+                Description = "C# Programlama Dili ile İlgili En Güncel Bilgiler",
+                IsActive = true,
+                IsDeleted = false,
+                CreatedByName = "InitialCreate",
+                CreatedDate = DateTime.Now,
+                ModifiedByName = "InitialCreate",
+                ModifiedDate = DateTime.Now,
+                Note = "C# Blog Kategorisi",
+            },
+            new Category
+            {
+                Id = 2,
+                Name = "C++",
+                Description = "C++ Programlama Dili ile İlgili En Güncel Bilgiler",
+                IsActive = true,
+                IsDeleted = false,
+                CreatedByName = "InitialCreate",
+                CreatedDate = DateTime.Now,
+                ModifiedByName = "InitialCreate",
+                ModifiedDate = DateTime.Now,
+                Note = "C++ Blog Kategorisi",
+            },
+            new Category
+            {
+                Id = 3,
+                Name = "Javascript",
+                Description = "Javascript Programlama Dili ile İlgili En Güncel Bilgiler",
+                IsActive = true,
+                IsDeleted = false,
+                CreatedByName = "InitialCreate",
+                CreatedDate = DateTime.Now,
+                ModifiedByName = "InitialCreate",
+                ModifiedDate = DateTime.Now,
+                Note = "Javascript Blog Kategorisi",
+            });
         }
     }
 }
