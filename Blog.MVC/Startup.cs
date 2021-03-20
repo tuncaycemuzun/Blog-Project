@@ -25,8 +25,10 @@ namespace Blog.MVC
                 opt.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
                 opt.JsonSerializerOptions.ReferenceHandler=ReferenceHandler.Preserve;
             });
+            services.AddSession();
             services.AddAutoMapper(typeof(CategoryProfile),typeof(ArticleProfile));
             services.LoadMyServices();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -38,8 +40,12 @@ namespace Blog.MVC
                 app.UseStatusCodePages();//404 NotFound
             }
 
+            app.UseSession();
             app.UseStaticFiles();
             app.UseRouting();
+
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
