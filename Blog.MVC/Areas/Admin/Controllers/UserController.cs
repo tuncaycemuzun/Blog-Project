@@ -151,6 +151,20 @@ namespace Blog.MVC.Areas.Admin.Controllers
 
             return fileName;
         }
+
+        public bool ImageDelete(string pictureName)
+        {
+            var wwwroot = _env.WebRootPath;
+            var fileToDelete = Path.Combine($"{wwwroot}/userImage/", pictureName);
+            if (System.IO.File.Exists(fileToDelete))
+            {
+                System.IO.File.Delete(fileToDelete);
+                return true;
+            }
+
+            return false;
+        }
+
         [HttpGet]
         public async Task<JsonResult> GetAllUsers()
         {
