@@ -391,60 +391,51 @@
             '#btnUpdate',
             function(e) {
                 e.preventDefault();
-                const form = $('#form-category-update');
+                const form = $('#form-user-update');
                 const actionUrl = form.attr('action');
-                const dataToSend = form.serialize();
-                $.post(actionUrl, dataToSend).done(function(data) {
-                    const categoryUpdateAjaxModal = jQuery.parseJSON(data);
-                    const newFormBody = $('.modal-body', categoryUpdateAjaxModal.CategoryUpdatePartial);
-                    placeHolderDiv.find('.modal-body').replaceWith(newFormBody);
-                    const isValid = newFormBody.find('[name="IsValid"]').val() === 'True';
-                    console.log(isValid);
-                    if (isValid) {
-                        placeHolderDiv.find('.modal').modal('hide');
-                        const newTableRow = `
-                                    <tr name="${categoryUpdateAjaxModal.CategoryDto.Category.Id}">
-                                        <td>${categoryUpdateAjaxModal.CategoryDto.Category.Id}</td>
-                                        <td>${categoryUpdateAjaxModal.CategoryDto.Category.Name}</td>
-                                        <td>${categoryUpdateAjaxModal.CategoryDto.Category.Description}</td>
-                                        <td>${convertFirstLetterToUpperCase(categoryUpdateAjaxModal.CategoryDto
-                                .Category.IsActive.toString())}</td>
-                                        <td>${convertFirstLetterToUpperCase(categoryUpdateAjaxModal.CategoryDto
-                                .Category.IsDeleted.toString())}</td>
-                                        <td>${categoryUpdateAjaxModal.CategoryDto.Category.Note}</td>
-                                        <td>${convertToShortDate(categoryUpdateAjaxModal.CategoryDto.Category
-                                .CreatedDate)}</td>
-                                        <td>${categoryUpdateAjaxModal.CategoryDto.Category.CreatedByName}</td>
-                                        <td>${convertToShortDate(categoryUpdateAjaxModal.CategoryDto.Category
-                                .ModifiedDate)}</td>
-                                        <td>${categoryUpdateAjaxModal.CategoryDto.Category.ModifiedByName}</td>
-                                        <td>
-                                            <button class="btn btn-primary btnEdit btn-sm" data-id="${
-                            categoryUpdateAjaxModal.CategoryDto.Category.Id}"><span class="fas fa-edit"></span></button>
-                                            <button class="btn btn-danger btnDelete btn-sm" data-id="${
-                            categoryUpdateAjaxModal.CategoryDto.Category.Id
-                            }"><span class="fas fa-minus-circle"></span></button>
-                                        </td>
-                                    </tr>`;
-                        const newTableRowObject = $(newTableRow);
-                        const categoryTableRow = $(`[name="${categoryUpdateAjaxModal.CategoryDto.Category.Id}"]`);
-                        newTableRowObject.hide();
-                        categoryTableRow.replaceWith(newTableRowObject);
-                        newTableRowObject.fadeIn(3500);
-                        toastr.success(`${categoryUpdateAjaxModal.CategoryDto.Message}`, "Başarılı!");
-                    } else {
-                        let summaryText = "";
-                        $('#validation-summary > ul > li').each(function () {
-                            let text = $(this).text();
-                            summaryText = `*${text}\n`;
-                        });
-                        toastr.warning(summaryText);
+                const dataToSend = new FormData(form.get(0));
+                $.ajax({
+                    url: actionUrl,
+                    type: 'POST',
+                    data: dataToSend,
+                    processData: false,
+                    contentType: false,
+                    success: function(data) {
+                        const userUpdateAjaxModal = jQuery.parseJSON(data);
+                        const id = userUpdateAjaxModal.UserDto.User.Id;
+                        const tableRow = $(`[name="${id}"]`);
+                        const newFormBody = $('.modal-body', userUpdateAjaxModal.UserUpdatePartial);
+                        placeHolderDiv.find('.modal-body').replaceWith(newFormBody);
+                        const isValid = newFormBody.find('[name="IsValid"]').val() === 'True';
+                        console.log(isValid);
+                        if (isValid) {
+                            placeHolderDiv.find('.modal').modal('hide');
+                            dataTable.row(tableRow).data([
+                                userUpdateAjaxModal.UserDto.User.Id,
+                                userUpdateAjaxModal.UserDto.User.UserName,
+                                userUpdateAjaxModal.UserDto.User.Email,
+                                userUpdateAjaxModal.UserDto.User.PhoneNumber,
+                                '<img src=\"/userImage/' + userUpdateAjaxModal.UserDto.User.Picture + '\" class=\"my-image-table\" alt=\"' + userUpdateAjaxModal.UserDto.User.Username + '" />',
+                                '<button class="btn btn-primary btnEdit btn-sm" data-id="' + userUpdateAjaxModal.UserDto.User.Id + '"><span class="fas fa-edit"></span></button>' +
+                                '<button class="btn btn-danger btnDelete btn-sm" data-id="' + userUpdateAjaxModal.UserDto.User.Id + '"><span class="fas fa-minus-circle"></span></button>'
+                            ]);
+                            tableRow.attr("name", `${id}`);
+                            dataTable.row(tableRow).invalidate();
+                            toastr.success(`${userUpdateAjaxModal.UserDto.Message}`, "Başarılı!");
+                        }
+                        else {
+                            let summaryText = "";
+                            $('#validation-summary > ul > li').each(function() {
+                                let text = $(this).text();
+                                summaryText = `*${text}\n`;
+                            });
+                            toastr.warning(summaryText);
+                        }
+                    },
+                    error: function(err) {
+                        console.log(err);
                     }
-                }).fail(function(response) {
-                    console.log(response);
                 });
             });
-
     });
-
 });
