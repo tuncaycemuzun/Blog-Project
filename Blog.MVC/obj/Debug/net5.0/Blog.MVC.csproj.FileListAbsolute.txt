@@ -405,3 +405,4 @@ B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.MVC
 B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.MVC\bin\Debug\net5.0\Microsoft.Extensions.Identity.Stores.dll
 B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.MVC\obj\Debug\net5.0\Razor\Areas\Admin\Views\User\Index.cshtml.g.cs
 B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.MVC\obj\Debug\net5.0\Razor\Areas\Admin\Views\User\_UserAddPartial.cshtml.g.cs
+B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.MVC\obj\Debug\net5.0\Razor\Areas\Admin\Views\User\_UserUpdatePartial.cshtml.g.cs

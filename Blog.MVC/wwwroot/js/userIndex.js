@@ -372,14 +372,14 @@
 /* Ajax Post / Deleting a category ends from here*/
 
     $(function() {
-        const url = '/Admin/Category/Update/';
+        const url = '/Admin/User/Update/';
         const placeHolderDiv = $('#modalPlaceHolder');
         $(document).on('click',
             '.btnEdit',
             function(e) {
                 e.preventDefault();
                 const id = $(this).attr('data-id');
-                $.get(url, { categoryId: id }).done(function (data) {
+                $.get(url, { userId: id }).done(function (data) {
                     placeHolderDiv.html(data);
                     placeHolderDiv.find('.modal').modal('show');
                 }).fail(function() {
