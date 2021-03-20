@@ -40,7 +40,7 @@
                                             user.UserName,
                                             user.Email,
                                             user.PhoneNumber,
-                                            '<img src=\"/userImage/' + user.Picture + '\" style=\"max-height: 50px;max-width: 50px\" alt=\"' + user.UserName + '" />',
+                                            '<img src=\"/userImage/' + user.Picture + '\" class=\"my-image-table\" alt=\"' + user.UserName + '" />',
                                             '<button class="btn btn-primary btnEdit btn-sm" data-id="' + user.Id + '"><span class="fas fa-edit"></span></button>' +
                                             '<button class="btn btn-danger btnDelete btn-sm ml-1" data-id="' + user.Id + '"><span class="fas fa-minus-circle"></span></button>'
                                         ]);
@@ -295,7 +295,7 @@
                             userAddAjaxModel.UserDto.User.UserName,
                             userAddAjaxModel.UserDto.User.Email,
                             userAddAjaxModel.UserDto.User.PhoneNumber,
-                            '<img src=\"/userImage/' + userAddAjaxModel.UserDto.User.Picture + '\" style=\"max-height: 50px;max-width: 50px\" alt=\"' + userAddAjaxModel.UserDto.User.Username+'" />',
+                            '<img src=\"/userImage/' + userAddAjaxModel.UserDto.User.Picture + '\" class=\"my-image-table\" alt=\"' + userAddAjaxModel.UserDto.User.Username+'" />',
                             '<button class="btn btn-primary btnEdit btn-sm" data-id="' + userAddAjaxModel.UserDto.User.Id+'"><span class="fas fa-edit"></span></button>'+
                             '<button class="btn btn-danger btnDelete btn-sm" data-id="' + userAddAjaxModel.UserDto.User.Id +'"><span class="fas fa-minus-circle"></span></button>'
                         ]).draw();
