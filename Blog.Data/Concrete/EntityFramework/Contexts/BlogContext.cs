@@ -5,11 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using Blog.Data.Concrete.EntityFramework.Mappings;
 using Blog.Entities.Concrete;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Blog.Data.Concrete.EntityFramework.Contexts
 {
-    public class BlogContext : DbContext
+    public class BlogContext : IdentityDbContext<User,Role,int>
     {
         public DbSet<Article> Articles { get; set; }
         public DbSet<Category> Categories { get; set; }

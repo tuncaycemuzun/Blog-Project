@@ -1,5 +1,4 @@
-﻿using Blog.Shared.Entities.Abstract;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,8 +7,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace Blog.Entities.Concrete
 {
-    public class Role:IdentityRole<int>
+    public class UserRole : IdentityUserRole<int>
     {
-        
     }
 }
