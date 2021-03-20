@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using Blog.Entities.Dtos;
 using Blog.MVC.Areas.Admin.Models;
@@ -54,6 +55,24 @@ namespace Blog.MVC.Areas.Admin.Controllers
                 CategoryAddPartial = await this.RenderViewToStringAsync("_CategoryAddPartial", categoryAddDto)
             });
             return Json(categoryAddAjaxErrorModel);
+        }
+
+        public async Task<JsonResult> GetAllCategories()
+        {
+            var result = await _categoryService.GetAll();
+            var categories = JsonSerializer.Serialize(result.Data,new JsonSerializerOptions
+            {
+                ReferenceHandler = ReferenceHandler.Preserve
+            });
+            return Json(categories);
+        }
+
+        [HttpPost]
+        public async Task<JsonResult> Delete(int categoryId)
+        {
+            var result = _categoryService.Delete(categoryId, "Tuncay Cem Uzun");
+            var ajaxResult = JsonSerializer.Serialize(result);
+            return Json(ajaxResult);
         }
 
     }
