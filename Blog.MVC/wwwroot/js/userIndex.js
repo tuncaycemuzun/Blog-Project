@@ -303,7 +303,7 @@
                         ]).node();
                         const jQueryTableRow = $(newTableRow);
                         jQueryTableRow.attr('name', `${userAddAjaxModel.UserDto.User.Id}`);
-                        newTableRow.draw();
+                        dataTable.row(newTableRow).draw();
                         toastr.success(`${userAddAjaxModel.UserDto.Message}`, 'Başarılı!');
                     } else {
                         let summaryText = "";
@@ -374,7 +374,7 @@
                 }
             });
         });
-/* Ajax Post / Deleting a category ends from here*/
+/* Ajax Post / Deleting a User ends from here*/
 
     $(function() {
         const url = '/Admin/User/Update/';
