@@ -1,15 +1,15 @@
 
 .vs
-Blog.Data/bin
-Blog.Data/obj
-Blog.Entities/bin
-Blog.Entities/obj
-Blog.MVC/bin
-Blog.MVC/obj
-Blog.Services/bin
-Blog.Services/obj
-Blog.Shared/bin
-Blog.Shared/obj
+Blog.Data/bin*
+Blog.Data/obj*
+Blog.Entities/bin*
+Blog.Entities/obj*
+Blog.MVC/bin*
+Blog.MVC/obj*
+Blog.Services/bin*
+Blog.Services/obj*
+Blog.Shared/bin*
+Blog.Shared/obj*
 Blog.MVC/wwwroot/userImage/tuncaycemuzun_725_11_35_22_20_3_2021.jpg
 Blog.MVC/wwwroot/userImage/tuncaycemuzun_624_53_33_22_20_3_2021.jpg
 Blog.MVC/wwwroot/userImage/test_843_27_52_22_20_3_2021.png
