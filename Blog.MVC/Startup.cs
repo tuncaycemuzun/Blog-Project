@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using Blog.MVC.AutoMapper.Profiles;
 using Blog.Services.AutoMapper.Profiles;
 using Blog.Services.Extensions;
 
@@ -26,7 +27,7 @@ namespace Blog.MVC
                 opt.JsonSerializerOptions.ReferenceHandler=ReferenceHandler.Preserve;
             });
             services.AddSession();
-            services.AddAutoMapper(typeof(CategoryProfile),typeof(ArticleProfile));
+            services.AddAutoMapper(typeof(CategoryProfile),typeof(ArticleProfile),typeof(UserProfile));
             services.LoadMyServices();
             services.ConfigureApplicationCookie(options =>
             {
