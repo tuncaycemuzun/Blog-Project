@@ -1,0 +1,74 @@
+﻿@using System.Data
+@using Blog.Shared.Utilities.Results.ComplexTypes
+@model Blog.Entities.Dtos.UserListDto
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Kullanıcılar";
+}
+@if (Model.ResultStatus == ResultStatus.Success)
+{
+    <div id="modalPlaceHolder" aria-hidden="true">
+        
+    </div>
+    <div class="card mb-4 mt-2">
+        <div class="card-header">
+            <i class="fas fa-table mr-1"></i>
+            Kullanıcılar Listesi
+        </div>
+        <div class="card-body">
+            <div class="spinner-border" role="status" style="display: none">
+                <span class="sr-only">Yükleniyor...</span>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-bordered" id="usersTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Kullanıcı Adı</th>
+                            <th>E-Posta</th>
+                            <th>Telefon Numarası</th>
+                            <th>Resim</th>
+                            <th>İşlemler</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (var user in Model.Users)
+                    {
+                        <tr name="@user.Id">
+                            <td>@user.UserName</td>
+                            <td>@user.Email</td>
+                            <td>@user.PhoneNumber</td>
+                            <td>@user.Picture</td>
+                            <td>
+                                <button class="btn btn-primary btnEdit btn-sm" data-id="@user.Id"><span class="fas fa-edit"></span></button>
+                                <button class="btn btn-danger btnDelete btn-sm" data-id="@user.Id"><span class="fas fa-minus-circle"></span></button>
+                            </td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+}
+
+
+@if (Model.ResultStatus == ResultStatus.Error)
+{   
+    <div class="row">
+        <a class="btn btn-success">Ekle</a>
+    </div>
+    <div class="row">
+        <div class="alert alert-danger">
+            @Model.Message <br/>
+            Dashboard sayfasına geri dönmek için lütfen <a class="alert-link" asp-area="Admin" asp-controller="Home" asp-action="Index">tıklayın</a>
+        </div>
+    </div>
+    
+}
+
+    @section Scripts
+    {
+        <script src="~/js/userIndex.js" type="application/ecmascript"></script>
+    }
