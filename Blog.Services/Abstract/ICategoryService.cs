@@ -10,11 +10,12 @@ namespace Blog.Services.Abstract
     {
         Task<IDataResult<CategoryDto>> Get(int categoryId);
         Task<IDataResult<CategoryListDto>> GetAll();
+        Task<IDataResult<CategoryUpdateDto>> GetCategoryUpdateDto(int categoryId);
         Task<IDataResult<CategoryListDto>> GetAllByNonDeleted();
         Task<IDataResult<CategoryListDto>> GetAllByNonDeletedandAktive();
         Task<IDataResult<CategoryDto>> Add(CategoryAddDto categoryAddDto,string createdByName);
         Task<IDataResult<CategoryDto>> Update(CategoryUpdateDto categoryUpdateDto,string modifiedByName);
-        Task<IResult> Delete(int categoryId,string modifiedByName);
+        Task<IDataResult<CategoryDto>> Delete(int categoryId,string modifiedByName);
         Task<IResult> HardDelete(int categoryId);
     }
 }

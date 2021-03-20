@@ -25,7 +25,7 @@ namespace Blog.MVC.Areas.Admin.Controllers
         
         public async Task<IActionResult> Index()
         {
-            var result = await _categoryService.GetAll();
+            var result = await _categoryService.GetAllByNonDeleted();
             return View(result.Data);
         }
 
@@ -59,7 +59,7 @@ namespace Blog.MVC.Areas.Admin.Controllers
 
         public async Task<JsonResult> GetAllCategories()
         {
-            var result = await _categoryService.GetAll();
+            var result = await _categoryService.GetAllByNonDeleted();
             var categories = JsonSerializer.Serialize(result.Data,new JsonSerializerOptions
             {
                 ReferenceHandler = ReferenceHandler.Preserve
@@ -70,9 +70,46 @@ namespace Blog.MVC.Areas.Admin.Controllers
         [HttpPost]
         public async Task<JsonResult> Delete(int categoryId)
         {
-            var result = _categoryService.Delete(categoryId, "Tuncay Cem Uzun");
-            var ajaxResult = JsonSerializer.Serialize(result);
-            return Json(ajaxResult);
+            var result = await _categoryService.Delete(categoryId, "Tuncay Cem Uzun");
+            var deletedCategory = JsonSerializer.Serialize(result.Data);
+            return Json(deletedCategory);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Update(int categoryId)
+        {
+            var result = await _categoryService.GetCategoryUpdateDto(categoryId);
+            if (result.ResultStatus == ResultStatus.Success)
+            {
+                return PartialView("_CategoryUpdatePartial",result.Data);
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Update(CategoryUpdateDto categoryUpdateDto)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = await _categoryService.Update(categoryUpdateDto, "Tuncay Cem Uzun");
+                if (result.ResultStatus == ResultStatus.Success)
+                {
+                    var categoryUpdateAjaxModel = JsonSerializer.Serialize(new CategoryUpdateAjaxViewModel
+                    {
+                        CategoryDto = result.Data,
+                        CategoryUpdatePartial = await this.RenderViewToStringAsync("_CategoryUpdatePartial", categoryUpdateDto)
+                    });
+                    return Json(categoryUpdateAjaxModel);
+                }
+            }
+            var categoryUpdateAjaxErrorModel = JsonSerializer.Serialize(new CategoryUpdateAjaxViewModel
+            {
+                CategoryUpdatePartial = await this.RenderViewToStringAsync("_CategoryUpdatePartial", categoryUpdateDto)
+            });
+            return Json(categoryUpdateAjaxErrorModel);
         }
 
     }

@@ -11,8 +11,6 @@ namespace Blog.Data.Abstract
         IArticleRepository Articles { get; }
         ICategoryRepository Categories { get; }
         ICommentRepository Comments { get; }
-        IRoleRepository Roles { get; }
-        IUserRepository Users { get; } // _unitOfWork.Users.AddAsync();
         Task<int> SaveAsync();
     }
 }

@@ -401,3 +401,4 @@ B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.MVC
 B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.MVC\obj\Debug\net5.0\Razor\Areas\Admin\Views\Category\_CategoryAddPartial.cshtml.g.cs
 B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.MVC\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
 B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.MVC\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
+B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.MVC\obj\Debug\net5.0\Razor\Areas\Admin\Views\Category\_CategoryUpdatePartial.cshtml.g.cs
