@@ -1,5 +1,5 @@
 
-.vs
+.vs/*
 Blog.Data/bin*
 Blog.Data/obj*
 Blog.Entities/bin*
