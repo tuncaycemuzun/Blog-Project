@@ -406,7 +406,7 @@
                         const tableRow = $(`[name="${id}"]`);
                         const newFormBody = $('.modal-body', userUpdateAjaxModal.UserUpdatePartial);
                         placeHolderDiv.find('.modal-body').replaceWith(newFormBody);
-                        const isValid = newFormBody.find('[name="IsValid"]').val() === 'True';
+                        const isValid = newFormBody.find('[name="isValid"]').val() === 'True';
                         console.log(isValid);
                         if (isValid) {
                             placeHolderDiv.find('.modal').modal('hide');
