@@ -36,10 +36,11 @@
                     @foreach (var user in Model.Users)
                     {
                         <tr name="@user.Id">
+                            <td>@user.Id</td>
                             <td>@user.UserName</td>
                             <td>@user.Email</td>
                             <td>@user.PhoneNumber</td>
-                            <td>@user.Picture</td>
+                            <td><img src="~/userImage/@user.Picture" style="max-height: 50px;max-width: 50px" alt="@user.UserName"/></td>
                             <td>
                                 <button class="btn btn-primary btnEdit btn-sm" data-id="@user.Id"><span class="fas fa-edit"></span></button>
                                 <button class="btn btn-danger btnDelete btn-sm" data-id="@user.Id"><span class="fas fa-minus-circle"></span></button>
