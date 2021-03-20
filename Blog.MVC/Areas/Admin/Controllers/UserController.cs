@@ -96,6 +96,38 @@ namespace Blog.MVC.Areas.Admin.Controllers
             return Json(useraddAjaxModalStateErrorModal);
         }
 
+        public async Task<JsonResult> Delete(int userId)
+        {
+            var user = await _userManager.FindByIdAsync(userId.ToString());
+            var result = await _userManager.DeleteAsync(user);
+            if (result.Succeeded)
+            {
+                var deletedUser = JsonSerializer.Serialize(new UserDto
+                {
+                    ResultStatus = ResultStatus.Success,
+                    Message = $"{user.UserName} adlı kullanıcı başarıyla silinmiştir.",
+                    User = user
+                });
+                return Json(deletedUser);
+            }
+            else
+            {
+                string errorMessage = string.Empty;
+                foreach(var error in result.Errors)
+                {
+                    errorMessage = $"*{error.Description}\n";
+                }
+
+                var deletedUserErrorModel = JsonSerializer.Serialize(new UserDto
+                {
+                    ResultStatus = ResultStatus.Error,
+                    Message = $"{user.UserName} adlı kullanıcı silinirken hata oluştu.\n{errorMessage}",
+                    User = null
+                });
+                return Json(deletedUserErrorModel);
+            }
+        }
+
 
         
         public async Task<string> ImageUpload(UserAddDto userAddDto)

@@ -42,7 +42,7 @@
                                             user.PhoneNumber,
                                             '<img src=\"/userImage/' + user.Picture + '\" style=\"max-height: 50px;max-width: 50px\" alt=\"' + user.UserName + '" />',
                                             '<button class="btn btn-primary btnEdit btn-sm" data-id="' + user.Id + '"><span class="fas fa-edit"></span></button>' +
-                                            '<button class="btn btn-danger btnDelete btn-sm" data-id="' + user.Id + '"><span class="fas fa-minus-circle"></span></button>'
+                                            '<button class="btn btn-danger btnDelete btn-sm ml-1" data-id="' + user.Id + '"><span class="fas fa-minus-circle"></span></button>'
                                         ]);
                                     });
                                 dataTable.draw();
@@ -316,7 +316,7 @@
             });
     });
 
-    /* Ajax Post / Posting the FormData as CategoryAddDto starts from here*/
+    /* Ajax Post / Posting the FormData as UserAddDto starts from here*/
 
     /* Ajax Post / Deleting a category starts from here*/
 
@@ -326,10 +326,10 @@
             e.preventDefault();
             const id = $(this).attr("data-id");
             const tableRow = $(`[name="${id}"]`);
-            const categoryName = tableRow.find('td:eq(1)').text();
+            const userName = tableRow.find('td:eq(1)').text();
             Swal.fire({
                 title: 'Silmek istediğinize emin misiniz?',
-                text: `${categoryName} adlı kategori silinecektir!`,
+                text: `${userName} adlı kullanıcı silinecektir!`,
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
@@ -341,23 +341,23 @@
                     $.ajax({
                         type: 'POST',
                         dataType: 'json',
-                        data: { categoryId: id },
-                        url: '/Admin/Category/Delete/',
+                        data: { userId: id },
+                        url: '/Admin/User/Delete/',
                         success: function (data) {
-                            const categoryDto = jQuery.parseJSON(data);
-                            if (categoryDto.ResultStatus === 0) {
+                            const userDto = jQuery.parseJSON(data);
+                            if (userDto.ResultStatus === 0) {
                                 Swal.fire(
                                     'Silindi!',
-                                    `${categoryDto.Category.Name} adlı kategori başarıyla silinmiştir.`,
+                                    `${userDto.User.UserName} adlı kullanıcı başarıyla silinmiştir.`,
                                     'success'
                                 );
 
-                                tableRow.fadeOut(1500);
+                                dataTable.row(tableRow).remove().draw();
                             } else {
                                 Swal.fire({
                                     icon: 'error',
                                     title: 'Başarısız İşlem..',
-                                    text: `${categoryDto.Message}`
+                                    text: `${userDto.Message}`
                                 });
                             }
                         },
