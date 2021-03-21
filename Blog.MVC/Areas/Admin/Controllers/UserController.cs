@@ -45,6 +45,12 @@ namespace Blog.MVC.Areas.Admin.Controllers
             });
 
         }
+        
+        [HttpGet]
+        public IActionResult UserLogin()
+        {
+            return View();
+        }
 
         [HttpGet]
         public IActionResult Add()
