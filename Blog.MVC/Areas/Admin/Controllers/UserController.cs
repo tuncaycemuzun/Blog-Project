@@ -38,7 +38,7 @@ namespace Blog.MVC.Areas.Admin.Controllers
             _singInManager = singInManager;
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin")]//[Authorize(Roles = "Admin,Editor")]
         public async Task<IActionResult> Index()
         {
             var users = await _userManager.Users.ToListAsync();
@@ -141,7 +141,7 @@ namespace Blog.MVC.Areas.Admin.Controllers
             return Json(useraddAjaxModalStateErrorModal);
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public async Task<JsonResult> Delete(int userId)
         {
             var user = await _userManager.FindByIdAsync(userId.ToString());
@@ -175,7 +175,7 @@ namespace Blog.MVC.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public async Task<PartialViewResult> Update(int userId)
         {
             var user = await _userManager.Users.FirstOrDefaultAsync(u=>u.Id==userId);
@@ -185,7 +185,7 @@ namespace Blog.MVC.Areas.Admin.Controllers
 
 
         [HttpPost]
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Update(UserUpdateDto userUpdateDto)
         {
             bool isNewPictureUploaded = false;
@@ -245,7 +245,7 @@ namespace Blog.MVC.Areas.Admin.Controllers
             }
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin,Editor")]
         public async Task<string> ImageUpload(string userName, IFormFile pictureFile)
         {
             string wwroot = _env.WebRootPath;
@@ -261,7 +261,7 @@ namespace Blog.MVC.Areas.Admin.Controllers
             return fileName;
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin,Editor")]
         public bool ImageDelete(string pictureName)
         {
             var wwwroot = _env.WebRootPath;
@@ -276,7 +276,7 @@ namespace Blog.MVC.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public async Task<JsonResult> GetAllUsers()
         {
             var users = await _userManager.Users.ToListAsync();
