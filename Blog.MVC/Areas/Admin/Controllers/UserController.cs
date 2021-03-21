@@ -291,5 +291,11 @@ namespace Blog.MVC.Areas.Admin.Controllers
             });
             return Json(userListDto);
         }
+
+        [HttpGet]
+        public ViewResult AccessDenied()
+        {
+            return View();
+        }
     }
 }
