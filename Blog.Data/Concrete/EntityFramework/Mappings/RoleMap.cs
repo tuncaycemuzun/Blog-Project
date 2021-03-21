@@ -43,15 +43,15 @@ namespace Blog.Data.Concrete.EntityFramework.Mappings
                 {
                     Id = 1,
                     Name = "Admin",
-                    NormalizedName = "ADMİN",
-                    ConcurrencyStamp = new Guid().ToString()
+                    NormalizedName = "ADMIN",
+                    ConcurrencyStamp = Guid.NewGuid().ToString()
                 },
                 new Role
                 {
                     Id=2,
                     Name = "Editor",
                     NormalizedName = "EDITOR",
-                    ConcurrencyStamp = new Guid().ToString()
+                    ConcurrencyStamp = Guid.NewGuid().ToString()
                 }
             );
         }
