@@ -23,6 +23,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Blog.MVC.Areas.Admin.Controllers
 {
     [Area("Admin")]
+
     public class UserController : Controller
     {
         private readonly UserManager<User> _userManager;
@@ -101,14 +102,14 @@ namespace Blog.MVC.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public IActionResult Add()
         {
             return PartialView("_UserAddPartial");
         }
 
         [HttpPost]
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Add(UserAddDto userAddDto)
         {
             if (ModelState.IsValid)
