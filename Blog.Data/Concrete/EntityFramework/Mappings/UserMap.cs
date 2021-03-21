@@ -80,6 +80,8 @@ namespace Blog.Data.Concrete.EntityFramework.Mappings
                 SecurityStamp = new Guid().ToString()
             };
             editorUser.PasswordHash = CreatePasswordHash(editorUser, "editor123");
+
+            builder.HasData(adminUser, editorUser);
         }
 
         private string CreatePasswordHash(User user, string password)
