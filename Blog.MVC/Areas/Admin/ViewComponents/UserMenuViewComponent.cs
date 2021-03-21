@@ -11,11 +11,11 @@ using Microsoft.AspNetCore.Mvc.ViewComponents;
 
 namespace Blog.MVC.Areas.Admin.ViewComponents
 {
-    public class AdminMenuViewComponent : ViewComponent
+    public class UserMenuViewComponent : ViewComponent
     {
         private readonly UserManager<User> _userManager;
 
-        public AdminMenuViewComponent(UserManager<User> userManager)
+        public UserMenuViewComponent(UserManager<User> userManager)
         {
             _userManager = userManager;
         }
@@ -23,11 +23,9 @@ namespace Blog.MVC.Areas.Admin.ViewComponents
         public ViewViewComponentResult Invoke()
         {
             var user = _userManager.GetUserAsync(HttpContext.User).Result;
-            var roles = _userManager.GetRolesAsync(user).Result;
-            return View(new UserWithRolesViewModel
+            return View(new UserViewModel
             {
-                User = user,
-                Roles = roles
+                User = user
             });
         }
     }

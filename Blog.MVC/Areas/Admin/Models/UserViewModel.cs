@@ -6,10 +6,8 @@ using Blog.Entities.Concrete;
 
 namespace Blog.MVC.Areas.Admin.Models
 {
-    public class UserWithRolesViewModal
+    public class UserViewModel
     {
-        public User User{ get; set; }
-
-        public IList<string> Roles { get; set; }
+        public User User { get; set; }
     }
 }

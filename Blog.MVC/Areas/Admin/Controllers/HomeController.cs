@@ -13,6 +13,7 @@ namespace Blog.MVC.Areas.Admin.Controllers
     {
         public IActionResult Index()
         {
+            ViewBag.Title = "Dashboard";
             return View();
         }
     }

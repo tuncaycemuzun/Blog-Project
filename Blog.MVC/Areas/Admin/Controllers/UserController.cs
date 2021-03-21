@@ -88,6 +88,18 @@ namespace Blog.MVC.Areas.Admin.Controllers
             }
         }
 
+
+        [Authorize]
+        [HttpGet]
+        public async Task<IActionResult> Logout()
+        {
+            await _singInManager.SignOutAsync();
+            return RedirectToAction("Index","Home",new
+            {
+                Area=""
+            });
+        }
+
         [HttpGet]
         [Authorize]
         public IActionResult Add()
