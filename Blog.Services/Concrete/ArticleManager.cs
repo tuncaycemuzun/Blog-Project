@@ -19,7 +19,6 @@ namespace Blog.Services.Concrete
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
-
         public ArticleManager(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _mapper = mapper;
@@ -36,7 +35,6 @@ namespace Blog.Services.Concrete
                     ResultStatus = ResultStatus.Success
                 });
             }
-
             return new DataResult<ArticleDto>(ResultStatus.Error, Messages.Article.NotFound(false), null);
         }
 
@@ -80,7 +78,6 @@ namespace Blog.Services.Concrete
                 });
             }
             return new DataResult<ArticleListDto>(ResultStatus.Error, Messages.Article.NotFound(true), null);
-
         }
 
         public async Task<IDataResult<ArticleListDto>> GetAllByCategori(int categoriId)
@@ -101,7 +98,6 @@ namespace Blog.Services.Concrete
                 return new DataResult<ArticleListDto>(ResultStatus.Error, Messages.Article.NotFound(true), null);
             }
             return new DataResult<ArticleListDto>(ResultStatus.Error, Messages.Article.NotFound(false), null);
-
         }
 
         public async Task<IResult> Add(ArticleAddDto articleAddDto, string createdByName)
