@@ -414,3 +414,4 @@ B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.MVC
 B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.MVC\obj\Debug\net5.0\Razor\Areas\Admin\Views\User\PasswordChange.cshtml.g.cs
 B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.MVC\bin\Debug\net5.0\Humanizer.dll
 B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.MVC\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
+B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.MVC\obj\Debug\net5.0\Razor\Views\Shared\_ComingSoonLayout.cshtml.g.cs
