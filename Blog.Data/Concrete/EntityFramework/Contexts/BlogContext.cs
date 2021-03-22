@@ -21,6 +21,11 @@ namespace Blog.Data.Concrete.EntityFramework.Contexts
         //    optionsBuilder.UseSqlServer(@"Server=DESKTOP-6P428Q4\SQLEXPRESS;Database=Blog;Trusted_Connection=True;Connect Timeout=30;MultipleActiveResultSets=True;");
         //}
 
+        public BlogContext(DbContextOptions<BlogContext> options):base(options)
+        {
+            
+        }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new ArticleMap());
