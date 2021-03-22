@@ -5,10 +5,13 @@
     Layout = "_Layout";
     ViewBag.Title = "Kategoriler";
 }
+<ol class="breadcrumb mb-3">
+    <li class="breadcrumb-item"><a class="breadcrumb-item" asp-area="Admin" asp-controller="Home" asp-action="Index">Admin</a></li>
+    <li class="breadcrumb-item active"><a class="breadcrumb-item active" asp-area="Admin" asp-controller="Category" asp-action="Index">Kategoriler</a></li>
+</ol>
 @if (Model.ResultStatus == ResultStatus.Success)
 {
     <div id="modalPlaceHolder" aria-hidden="true">
-        
     </div>
     <div class="card mb-4 mt-2">
         <div class="card-header">
@@ -37,21 +40,7 @@
                         <th>İşlemler</th>
                     </tr>
                     </thead>
-                    <tfoot>
-                    <tr>
-                        <th>ID</th>
-                        <th>Adı</th>
-                        <th>Açıklaması</th>
-                        <th>Aktif Mi?</th>
-                        <th>Silinmiş Mi?</th>
-                        <th>Not</th>
-                        <th>Oluşturulma Tarihi</th>
-                        <th>Oluşturan Kullanıcı</th>
-                        <th>Son Düzenlenme Tarihi</th>
-                        <th>Son Düzenleyen Kullanıcı</th>
-                        <th></th>
-                    </tr>
-                    </tfoot>
+
                     <tbody>
                     @foreach (var category in Model.Categories)
                     {
@@ -59,8 +48,8 @@
                             <td>@category.Id</td>
                             <td>@category.Name</td>
                             <td>@category.Description</td>
-                            <td>@category.IsActive</td>
-                            <td>@category.IsDeleted</td>
+                            <td>@(category.IsActive?"Evet":"Hayır")</td>
+                            <td>@(category.IsDeleted?"Evet":"Hayır")</td>
                             <td>@category.Note</td>
                             <td>@category.CreatedDate.ToShortDateString()</td>
                             <td>@category.CreatedByName</td>
@@ -97,5 +86,5 @@
 
     @section Scripts
     {
-        <script src="~/js/categoryIndex.js" type="application/ecmascript"></script>
+        <script src="~/AdminLTE/js/categoryIndex.js" type="application/ecmascript"></script>
     }

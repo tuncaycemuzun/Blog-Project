@@ -17,3 +17,4 @@ B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.Ser
 B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.Services\bin\Debug\net5.0\Blog.Entities.pdb
 B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.Services\bin\Debug\net5.0\Blog.Shared.pdb
 B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.Services\obj\Debug\net5.0\Blog.Services.csproj.CopyComplete
+B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.Services\bin\Debug\net5.0\Blog.Services.xml

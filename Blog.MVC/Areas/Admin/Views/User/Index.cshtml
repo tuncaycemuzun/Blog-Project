@@ -5,6 +5,11 @@
     Layout = "_Layout";
     ViewBag.Title = "Kullanıcılar";
 }
+
+<ol class="breadcrumb mb-3">
+    <li class="breadcrumb-item"><a class="breadcrumb-item" asp-area="Admin" asp-controller="Home" asp-action="Index">Admin</a></li>
+    <li class="breadcrumb-item active"><a class="breadcrumb-item active" asp-area="Admin" asp-controller="User" asp-action="Index">Kullanıcılar</a></li>
+</ol>
 @if (Model.ResultStatus == ResultStatus.Success)
 {
     <div id="modalPlaceHolder" aria-hidden="true">
@@ -71,5 +76,5 @@
 
     @section Scripts
     {
-        <script src="~/js/userIndex.js" type="application/ecmascript"></script>
+        <script src="~/AdminLTE/js/userIndex.js" type="application/ecmascript"></script>
     }

@@ -2,7 +2,6 @@ B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.Sha
 B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.Shared\bin\Debug\net5.0\Blog.Shared.dll
 B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.Shared\bin\Debug\net5.0\ref\Blog.Shared.dll
 B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.Shared\bin\Debug\net5.0\Blog.Shared.pdb
-B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.Shared\obj\Debug\net5.0\Blog.Shared.csprojAssemblyReference.cache
 B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.Shared\obj\Debug\net5.0\Blog.Shared.GeneratedMSBuildEditorConfig.editorconfig
 B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.Shared\obj\Debug\net5.0\Blog.Shared.AssemblyInfoInputs.cache
 B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.Shared\obj\Debug\net5.0\Blog.Shared.AssemblyInfo.cs
