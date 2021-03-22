@@ -315,7 +315,7 @@
                     }
                     },
                     error: function(err) {
-                        console.log(err);
+                        toastr.error(`${err.responseText}`, "Hata");
                     }
                 });
             });
@@ -407,8 +407,10 @@
                     contentType: false,
                     success: function(data) {
                         const userUpdateAjaxModal = jQuery.parseJSON(data);
-                        const id = userUpdateAjaxModal.UserDto.User.Id;
-                        const tableRow = $(`[name="${id}"]`);
+                        if (userUpdateAjaxModal.UserDto != null) {
+                            const id = userUpdateAjaxModal.UserDto.User.Id;
+                            const tableRow = $(`[name="${id}"]`);
+                        }
                         const newFormBody = $('.modal-body', userUpdateAjaxModal.UserUpdatePartial);
                         placeHolderDiv.find('.modal-body').replaceWith(newFormBody);
                         const isValid = newFormBody.find('[name="isValid"]').val() === 'True';
@@ -438,7 +440,7 @@
                         }
                     },
                     error: function(err) {
-                        console.log(err);
+                        toastr.error(`${err.responseText}`, "Hata");
                     }
                 });
             });
