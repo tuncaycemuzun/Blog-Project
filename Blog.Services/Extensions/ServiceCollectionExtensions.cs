@@ -9,15 +9,16 @@ using Blog.Data.Concrete.EntityFramework.Contexts;
 using Blog.Entities.Concrete;
 using Blog.Services.Abstract;
 using Blog.Services.Concrete;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Blog.Services.Extensions
 {
     public static class ServiceCollectionExtensions
     {
-        public static IServiceCollection LoadMyServices(this IServiceCollection serviceCollection)
+        public static IServiceCollection LoadMyServices(this IServiceCollection serviceCollection,string connectionString)
         {
-            serviceCollection.AddDbContext<BlogContext>();
+            serviceCollection.AddDbContext<BlogContext>(options=>options.UseSqlServer(connectionString));
             serviceCollection.AddIdentity<User, Role>(options=>
             {
                 //Şifre Seçenekleri

@@ -14,11 +14,18 @@ using Blog.MVC.Helpers.Abstract;
 using Blog.MVC.Helpers.Concrete;
 using Blog.Services.AutoMapper.Profiles;
 using Blog.Services.Extensions;
+using Microsoft.Extensions.Configuration;
 
 namespace Blog.MVC
 {
     public class Startup
     {
+        public Startup(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
+
+        public IConfiguration Configuration { get; }
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
@@ -30,7 +37,7 @@ namespace Blog.MVC
             });
             services.AddSession();
             services.AddAutoMapper(typeof(CategoryProfile),typeof(ArticleProfile),typeof(UserProfile));
-            services.LoadMyServices();
+            services.LoadMyServices(connectionString:Configuration.GetConnectionString("localDB"));
             services.AddScoped<IImageHelper, ImageHelper>();
             services.ConfigureApplicationCookie(options =>
             {
