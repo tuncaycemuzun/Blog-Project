@@ -10,6 +10,8 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using Blog.MVC.AutoMapper.Profiles;
+using Blog.MVC.Helpers.Abstract;
+using Blog.MVC.Helpers.Concrete;
 using Blog.Services.AutoMapper.Profiles;
 using Blog.Services.Extensions;
 
@@ -29,6 +31,7 @@ namespace Blog.MVC
             services.AddSession();
             services.AddAutoMapper(typeof(CategoryProfile),typeof(ArticleProfile),typeof(UserProfile));
             services.LoadMyServices();
+            services.AddScoped<IImageHelper, ImageHelper>();
             services.ConfigureApplicationCookie(options =>
             {
                 options.LoginPath = new PathString("/Admin/User/Login");

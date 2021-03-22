@@ -11,6 +11,7 @@ using AutoMapper;
 using Blog.Entities.Concrete;
 using Blog.Entities.Dtos;
 using Blog.MVC.Areas.Admin.Models;
+using Blog.MVC.Helpers.Abstract;
 using Blog.Shared.Utilities.Extensions;
 using Blog.Shared.Utilities.Results.ComplexTypes;
 using Microsoft.AspNetCore.Authorization;
@@ -27,14 +28,13 @@ namespace Blog.MVC.Areas.Admin.Controllers
     public class UserController : Controller
     {
         private readonly UserManager<User> _userManager;
-        private readonly IWebHostEnvironment _env;
         private readonly SignInManager<User> _singInManager;
         private readonly IMapper _mapper;
+        private readonly IImageHelper _imageHelper;
 
         public UserController(UserManager<User> userManager, IWebHostEnvironment env, IMapper mapper, SignInManager<User> singInManager)
         {
             _userManager = userManager;
-            _env = env;
             _mapper = mapper;
             _singInManager = singInManager;
         }
@@ -114,7 +114,8 @@ namespace Blog.MVC.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                userAddDto.Picture = await ImageUpload(userAddDto.Username,userAddDto.PictureFile);
+                var uploadedImageDtoResult = await _imageHelper.UploadedUserImage(userAddDto.Username,userAddDto.PictureFile);
+                userAddDto.Picture = uploadedImageDtoResult.ResultStatus == ResultStatus.Success ? uploadedImageDtoResult.Data.FullName : "userImages/defaultUser.png";
                 var user = _mapper.Map<User>(userAddDto);
                 var result = await _userManager.CreateAsync(user, userAddDto.Password);
                 if (result.Succeeded)
@@ -208,8 +209,12 @@ namespace Blog.MVC.Areas.Admin.Controllers
                 var oldUserImage = oldUser.Picture;
                 if (userUpdateDto.PictureFile != null)
                 {
-                    userUpdateDto.Picture = await ImageUpload(userUpdateDto.Username,userUpdateDto.PictureFile);
-                    isNewPictureUploaded = true;
+                    var uploadedImageDtoResult = await _imageHelper.UploadedUserImage(userUpdateDto.Username, userUpdateDto.PictureFile);
+                    userUpdateDto.Picture = uploadedImageDtoResult.ResultStatus == ResultStatus.Success ? uploadedImageDtoResult.Data.FullName : "userImages/defaultUser.png";
+                    if (oldUserImage != "userImages/defaultUser.png")
+                    {
+                        isNewPictureUploaded = true;
+                    }
                 }
 
                 var updatedUser = _mapper.Map<UserUpdateDto, User>(userUpdateDto, oldUser);
@@ -218,7 +223,7 @@ namespace Blog.MVC.Areas.Admin.Controllers
                 {
                     if (isNewPictureUploaded)
                     {
-                        ImageDelete(oldUserImage);
+                        _imageHelper.Delete(oldUserImage);
                     }
 
                     var userUpdateViewModal = JsonSerializer.Serialize(new UserUpdateAjaxViewModel
@@ -278,8 +283,9 @@ namespace Blog.MVC.Areas.Admin.Controllers
                 var oldUserImage = oldUser.Picture;
                 if (userUpdateDto.PictureFile != null)
                 {
-                    userUpdateDto.Picture = await ImageUpload(userUpdateDto.Username, userUpdateDto.PictureFile);
-                    if (oldUserImage != "defaultUser.png")
+                    var uploadedImageDtoResult = await _imageHelper.UploadedUserImage(userUpdateDto.Username, userUpdateDto.PictureFile);
+                    userUpdateDto.Picture = uploadedImageDtoResult.ResultStatus == ResultStatus.Success ? uploadedImageDtoResult.Data.FullName : "userImages/defaultUser.png";
+                    if (oldUserImage != "userImages/defaultUser.png")
                     {
                         isNewPictureUploaded = true;
                     }
@@ -291,7 +297,7 @@ namespace Blog.MVC.Areas.Admin.Controllers
                 {
                     if (isNewPictureUploaded)
                     {
-                        ImageDelete(oldUserImage);
+                        _imageHelper.Delete(oldUserImage);
                     }
                     TempData.Add("SuccessMessage", $"{updatedUser.UserName} adlı kullanıcı başarıyla güncellendi");
                     return View(userUpdateDto);
@@ -337,6 +343,15 @@ namespace Blog.MVC.Areas.Admin.Controllers
                         TempData.Add("SuccessMessage", $"Şifreniz başarıyla değiştirilmiştir");
                         return View();
                     }
+                    else
+                    {
+                        foreach (var error in result.Errors)
+                        {
+                            ModelState.AddModelError("",error.Description);
+                        }
+
+                        return View(userPasswordChangeDto);
+                    }
                 }
                 else
                 {
@@ -348,38 +363,6 @@ namespace Blog.MVC.Areas.Admin.Controllers
             {
                 return View(userPasswordChangeDto);
             }
-
-            return View();
-        }
-
-        [Authorize(Roles = "Admin,Editor")]
-        public async Task<string> ImageUpload(string userName, IFormFile pictureFile)
-        {
-            string wwroot = _env.WebRootPath;
-            string fileExtension = Path.GetExtension(pictureFile.FileName);
-            DateTime dateTime = DateTime.Now;
-            string fileName = $"{userName}_{dateTime.FullDateAndTimeStringWithUnderscore()}{fileExtension}";
-            var path = Path.Combine($"{wwroot}/userImage",fileName);
-            await using (var stream = new FileStream(path, FileMode.Create))
-            {
-                await pictureFile.CopyToAsync(stream);
-            }
-
-            return fileName;
-        }
-
-        [Authorize(Roles = "Admin,Editor")]
-        public bool ImageDelete(string pictureName)
-        {
-            var wwwroot = _env.WebRootPath;
-            var fileToDelete = Path.Combine($"{wwwroot}/userImage/", pictureName);
-            if (System.IO.File.Exists(fileToDelete))
-            {
-                System.IO.File.Delete(fileToDelete);
-                return true;
-            }
-
-            return false;
         }
 
         [HttpGet]
