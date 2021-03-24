@@ -28,16 +28,18 @@ namespace Blog.Data.Concrete.EntityFramework.Contexts
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new ArticleMap());
-            modelBuilder.ApplyConfiguration(new CategoryMap());
-            modelBuilder.ApplyConfiguration(new CommentMap());
-            modelBuilder.ApplyConfiguration(new RoleMap());
-            modelBuilder.ApplyConfiguration(new UserMap());
-            modelBuilder.ApplyConfiguration(new RoleClaimMap());
-            modelBuilder.ApplyConfiguration(new UserClaimMap());
-            modelBuilder.ApplyConfiguration(new UserLoginMap());
-            modelBuilder.ApplyConfiguration(new UserRoleMap());
-            modelBuilder.ApplyConfiguration(new UserTokenMap());
+            //modelBuilder.ApplyConfiguration(new ArticleMap());
+            //modelBuilder.ApplyConfiguration(new CategoryMap());
+            //modelBuilder.ApplyConfiguration(new CommentMap());
+            //modelBuilder.ApplyConfiguration(new RoleMap());
+            //modelBuilder.ApplyConfiguration(new UserMap());
+            //modelBuilder.ApplyConfiguration(new RoleClaimMap());
+            //modelBuilder.ApplyConfiguration(new UserClaimMap());
+            //modelBuilder.ApplyConfiguration(new UserLoginMap());
+            //modelBuilder.ApplyConfiguration(new UserRoleMap());
+            //modelBuilder.ApplyConfiguration(new UserTokenMap());
+
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(BlogContext).Assembly);
         }
     }
 }

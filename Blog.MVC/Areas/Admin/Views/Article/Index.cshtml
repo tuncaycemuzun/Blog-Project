@@ -1,0 +1,74 @@
+﻿@model Blog.Entities.Dtos.ArticleListDto
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Makaleler";
+}
+
+<ol class="breadcrumb mb-3">
+    <li class="breadcrumb-item"><a class="breadcrumb-item" asp-area="Admin" asp-controller="Home" asp-action="Index">Admin</a></li>
+    <li class="breadcrumb-item active"><a class="breadcrumb-item active" asp-area="Admin" asp-controller="Article" asp-action="Index">Makaleler</a></li>
+</ol>
+
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table mr-1"></i>
+        Makaleler
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="articlesTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Kategori</th>
+                        <th>Başlık</th>
+                        <th>Küçük Resim</th>
+                        <th>Tarih</th>
+                        <th>Okunma Sayısı</th>
+                        <th>Yorum Sayısı</th>
+                        <th>Aktif Mi?</th>
+                        <th>Silinmiş Mi?</th>
+                        <th>Oluşturulma Tarihi</th>
+                        <th>Oluşturan Kullanıcı</th>
+                        <th>Son Düzenlenme Tarihi</th>
+                        <th>Son Düzenleyen Kullanıcı</th>
+                        <th>İşlemler</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var article in Model.Articles)
+                    {
+                        <tr>
+                            <td>@article.Id</td>
+                            <td>@article.Category.Name</td>
+                            <td>@article.Title</td>
+                            <td><img src="~/img/@article.Thumbnail" class="my-image-table" /></td>
+                            <td>@article.Date.ToShortDateString()</td>
+                            <td>@article.ViewsCount</td>
+                            <td>@article.CommentCount</td>
+                            <td>@(article.IsActive?"Evet":"Hayır")</td>
+                            <td>@(article.IsDeleted?"Evet":"Hayır")</td>
+                            <td>@article.CreatedDate.ToShortDateString()</td>
+                            <td>@article.CreatedByName</td>
+                            <td>@article.ModifiedDate.ToShortDateString()</td>
+                            <td>@article.ModifiedByName</td>
+                            <td>
+                                <a class="btn btn-primary btnEdit btn-sm" data-id="@article.Id" asp-area="Admin" asp-action="Update" asp-controller="Article" asp-route-articleId="@article.Id"><span class="fas fa-edit"></span></a>
+                                <button class="btn btn-danger btnDelete btn-sm" data-id="@article.Id"><span class="fas fa-minus-circle"></span></button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+@section Scripts
+{
+    <script src="~/AdminLTE/js/articleIndex.js" type="application/ecmascript"></script>
+}
+@section Styles
+{
+    
+}
