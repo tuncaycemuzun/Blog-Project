@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using AutoMapper;
 using Blog.Entities.ComplexTypes;
@@ -132,6 +134,25 @@ namespace Blog.MVC.Areas.Admin.Controllers
             var categories = await _categoryService.GetAllByNonDeletedandActiveAsync();
             articleUpdateViewModel.Categories = categories.Data.Categories;
             return View(articleUpdateViewModel);
+        }
+
+        [HttpPost]
+        public async Task<JsonResult> Delete(int articleId)
+        {
+            var result = await _articleService.DeleteAsync(articleId, LoggedInUser.UserName);
+            var articleResult = JsonSerializer.Serialize(result);
+            return Json(articleResult);
+        }
+
+        [HttpGet]
+        public async Task<JsonResult> GetAllArticles()
+        {
+            var articles = await _articleService.GetAllByNonDeletedAndActiveAsync();
+            var articleResult = JsonSerializer.Serialize(articles,new JsonSerializerOptions
+            {
+                ReferenceHandler = ReferenceHandler.Preserve
+            });
+            return Json(articleResult);
         }
     }
 }
