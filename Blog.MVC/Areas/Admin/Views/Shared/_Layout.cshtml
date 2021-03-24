@@ -27,35 +27,36 @@
         <!-- Navbar-->
         @await Component.InvokeAsync("UserMenu");
     </nav>
-<div id="layoutSidenav">
-    @await Component.InvokeAsync("AdminMenu");
-    <div id="layoutSidenav_content">
-        <main>
-            <div class="container-fluid">
-                @if (TempData["SuccessMessage"] != null)
-                {
-                <div class="alert alert-success mt-2">
-                    @TempData["SuccessMessage"]
+    <div id="layoutSidenav">
+        @await Component.InvokeAsync("AdminMenu");
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid">
+                    @if (TempData["SuccessMessage"] != null)
+                    {
+                        <div class="alert alert-success mt-2">
+                            @TempData["SuccessMessage"]
+                        </div>
+                    }
+                    @RenderBody()
                 </div>
-                }
-                @RenderBody()
-            </div>
-        </main>
-        <footer class="py-4 bg-light mt-auto">
-            <div class="container-fluid">
-                <div class="d-flex align-items-center justify-content-between small">
-                    <div class="text-muted">Copyright &copy; Blog 2021</div>
-                    <div>
-                        <a href="#">Gizlilik Politikası</a>
-                        &middot;
+            </main>
+            <footer class="py-4 bg-light mt-auto">
+                <div class="container-fluid">
+                    <div class="d-flex align-items-center justify-content-between small">
+                        <div class="text-muted">Copyright &copy; Blog 2021</div>
+                        <div>
+                            <a href="#">Gizlilik Politikası</a>
+                            &middot;
+                        </div>
                     </div>
                 </div>
-            </div>
-        </footer>
+            </footer>
+        </div>
     </div>
-</div>
 
-@await Html.PartialAsync("_LayoutJsPartial");
-@await RenderSectionAsync("Scripts",false);
+    @await Html.PartialAsync("_LayoutJsPartial");
+    @await RenderSectionAsync("Scripts", false);
+    
 </body>
 </html>

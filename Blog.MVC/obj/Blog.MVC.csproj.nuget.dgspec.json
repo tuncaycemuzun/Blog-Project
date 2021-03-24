@@ -225,6 +225,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[5.0.4, )"
+            },
+            "NToastNotify": {
+              "target": "Package",
+              "version": "[7.0.0, )"
             }
           },
           "imports": [

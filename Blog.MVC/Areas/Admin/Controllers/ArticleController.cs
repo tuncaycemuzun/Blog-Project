@@ -14,6 +14,7 @@ using Blog.MVC.Helpers.Abstract;
 using Blog.Services.Abstract;
 using Blog.Shared.Utilities.Results.ComplexTypes;
 using Microsoft.AspNetCore.Identity;
+using NToastNotify;
 
 namespace Blog.MVC.Areas.Admin.Controllers
 {
@@ -22,10 +23,12 @@ namespace Blog.MVC.Areas.Admin.Controllers
     {
         private readonly IArticleService _articleService;
         private readonly ICategoryService _categoryService;
-        public ArticleController(IArticleService articleService, ICategoryService categoryService,UserManager<User> userManager ,IMapper mapper, IImageHelper imageHelper):base(userManager,mapper, imageHelper)
+        private readonly IToastNotification _toastNotification;
+        public ArticleController(IArticleService articleService, ICategoryService categoryService,UserManager<User> userManager ,IMapper mapper, IImageHelper imageHelper, IToastNotification toastNotification):base(userManager,mapper, imageHelper)
         {
             _articleService = articleService;
             _categoryService = categoryService;
+            _toastNotification = toastNotification;
         }
 
         [HttpGet]
@@ -63,7 +66,7 @@ namespace Blog.MVC.Areas.Admin.Controllers
                 var result = await _articleService.AddAsync(articleAddDto, LoggedInUser.UserName,LoggedInUser.Id);
                 if (result.ResultStatus == ResultStatus.Success)
                 {
-                    TempData.Add("SuccessMessage",result.Message);
+                    _toastNotification.AddSuccessToastMessage(result.Message);
                     return RedirectToAction("Index", "Article");
                 }
                 else
@@ -122,7 +125,7 @@ namespace Blog.MVC.Areas.Admin.Controllers
                     {
                         ImageHelper.Delete(oldThumbnail);
                     }
-                    TempData.Add("SuccessMessage", result.Message);
+                    _toastNotification.AddSuccessToastMessage(result.Message);
                     return RedirectToAction("Index", "Article");
                 }
                 else

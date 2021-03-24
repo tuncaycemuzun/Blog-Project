@@ -419,3 +419,6 @@ B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.MVC
 B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.MVC\obj\Debug\net5.0\Blog.MVC.pdb
 B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.MVC\obj\Debug\net5.0\Blog.MVC.genruntimeconfig.cache
 B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.MVC\obj\Debug\net5.0\Razor\Areas\Admin\Views\Article\Update.cshtml.g.cs
+B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.MVC\bin\Debug\net5.0\Blog.MVC.StaticWebAssets.xml
+B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.MVC\bin\Debug\net5.0\NToastNotify.Views.dll
+B:\Dosyalar\Projeler\Calismalarim\Asp.Net Core\BlogProject\Blog-Project\Blog.MVC\bin\Debug\net5.0\NToastNotify.dll

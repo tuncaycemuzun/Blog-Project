@@ -38,12 +38,21 @@
                             const articleResult = jQuery.parseJSON(data);
                             dataTable.clear();
                             if (articleResult.Data.ResultStatus === 0) {
+                                let categoriesArray = [];
                                 $.each(articleResult.Data.Articles.$values,
                                     function (index, article) {
                                         const newArticle = getJsonNetObject(article, articleResult.Data.Articles.$values);
+                                        let newCategory = getJsonNetObject(newArticle.Category, newArticle);
+                                        if (newCategory != null) {
+                                            categoriesArray.push(newCategory);
+                                        } else {
+                                            newCategory = categoriesArray.find((category) => {
+                                                return category.$id === newArticle.Category.$ref;
+                                            });
+                                        }
                                         const newTableRow = dataTable.row.add([
                                             newArticle.Id,
-                                            newArticle.Category.Name,
+                                            newCategory.Name,
                                             newArticle.Title,
                                             `<img src="/img/${newArticle.Thumbnail}" alt="${newArticle.Title}" class="my-image-table" />`,
                                             `${convertToShortDate(newArticle.Date)}`,
@@ -56,8 +65,8 @@
                                             `${convertToShortDate(newArticle.ModifiedDate)}`,
                                             newArticle.ModifiedByName,
                                             `
-                                <button class="btn btn-primary btn-sm btn-update" data-id="${newArticle.Id}"><span class="fas fa-edit"></span></button>
-                                <button class="btn btn-danger btn-sm btn-delete" data-id="${newArticle.Id}"><span class="fas fa-minus-circle"></span></button>
+                                <a href=\"/Admin/Article/Update/?articleId=${newArticle.Id}\" class="btn btn-primary btn-sm btnEdit" data-id="${newArticle.Id}"><span class="fas fa-edit"></span></a>
+                                <button class="btn btn-danger btn-sm btnDelete" data-id="${newArticle.Id}"><span class="fas fa-minus-circle"></span></button>
                                             `
                                         ]).node();
                                         const jqueryTableRow = $(newTableRow);
